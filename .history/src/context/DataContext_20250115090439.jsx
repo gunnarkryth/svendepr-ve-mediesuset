@@ -27,3 +27,7 @@ export const useFetch = ({ url, options }) => {
 
   return { data, loading, error };
 };
+
+export const useDataContext = () => {
+  return useContext(DataContext);
+};

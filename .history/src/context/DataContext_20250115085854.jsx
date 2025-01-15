@@ -7,12 +7,9 @@ export const useFetch = ({ url, options }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
+      setLoading
       try {
-        const response = await fetch(url, options);
-        if (!response.ok) {
-          throw new Error(`Error: ${response.statusText}`);
-        }
+        const response = await fetch("https://api.mediehuset.net");
         const result = await response.json();
         setData(result);
       } catch (err) {
@@ -23,7 +20,15 @@ export const useFetch = ({ url, options }) => {
     };
 
     fetchData();
-  }, [url, options]);
+  }, []);
 
-  return { data, loading, error };
+  return (
+    <DataContext.Provider value={{ data, loading, error }}>
+      {children}
+    </DataContext.Provider>
+  );
+};
+
+export const useDataContext = () => {
+  return useContext(DataContext);
 };

@@ -14,7 +14,8 @@ export const useFetch = ({ url, options }) => {
           throw new Error(`Error: ${response.statusText}`);
         }
         const result = await response.json();
-        setData(result);
+
+        
       } catch (err) {
         setError(err);
       } finally {
@@ -23,7 +24,15 @@ export const useFetch = ({ url, options }) => {
     };
 
     fetchData();
-  }, [url, options]);
+  }, []);
 
-  return { data, loading, error };
+  return (
+    <DataContext.Provider value={{ data, loading, error }}>
+      {children}
+    </DataContext.Provider>
+  );
+};
+
+export const useDataContext = () => {
+  return useContext(DataContext);
 };

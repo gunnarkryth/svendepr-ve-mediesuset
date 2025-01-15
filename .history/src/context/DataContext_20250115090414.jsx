@@ -23,7 +23,15 @@ export const useFetch = ({ url, options }) => {
     };
 
     fetchData();
-  }, [url, options]);
+  }, [url, option]);
 
-  return { data, loading, error };
+  return (
+    <DataContext.Provider value={{ data, loading, error }}>
+      {children}
+    </DataContext.Provider>
+  );
+};
+
+export const useDataContext = () => {
+  return useContext(DataContext);
 };
