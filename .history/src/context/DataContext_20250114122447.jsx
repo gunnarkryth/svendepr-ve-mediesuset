@@ -10,7 +10,7 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://api.mediehuset.net");
+        const response = await fetch("https://api.mediehuset.net/mediesuset");
         const result = await response.json();
         setData(result);
       } catch (err) {

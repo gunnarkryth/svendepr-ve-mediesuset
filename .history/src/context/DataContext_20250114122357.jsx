@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { createContext, useState, useEffect } from 'react';
 
 export const DataContext = createContext();
 
@@ -10,7 +10,7 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://api.mediehuset.net");
+        const response = await fetch('https://api.mediehuset.net/mediesuset');
         const result = await response.json();
         setData(result);
       } catch (err) {
@@ -28,8 +28,8 @@ export const DataProvider = ({ children }) => {
       {children}
     </DataContext.Provider>
   );
-};
 
-export const useDataContext = () => {
-  return useContext(DataContext);
+  export const useDataContext = () => {
+    return 
+  }
 };

@@ -6,9 +6,8 @@ export const MainLayout = () => {
   return (
     <div>
       <Nav />
-      <DataProvider>
-        <Outlet />
-      </DataProvider>
+      <DataProvider
+      <Outlet />
     </div>
   );
 };
