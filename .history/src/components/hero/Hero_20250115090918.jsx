@@ -4,8 +4,8 @@ const { data, loading, error } = useEffect(
   "https://api.mediehuset.net/images/mediesuset/stage1-foto-colourbox.jpg"
 );
 
-if (loading) return <p>Loading...</p>;
-if (error) return <p>Error: {error}</p>;
+if (loading) return <p>Loading...</p>
+if (loading) return <p>Error...</p>
 
 export const Hero = () => {
   const { data, loading, error } = useDataContext();
