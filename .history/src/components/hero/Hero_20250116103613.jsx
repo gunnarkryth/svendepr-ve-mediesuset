@@ -2,13 +2,13 @@ import { useFetch } from "../../context/UseFetch";
 
 export const Hero = () => {
   const { data, loading, error } = useFetch({
-    url: "https://api.mediehuset.net/mediesuset/images",
+    url: "https://api.mediehuset.net/mediesuset/images/3",
   });
 
   if (loading) return <p>Loading...</p>;
   // if (error) return <p>Error: {error}</p>;
 
-  console.log(data.items[3].image);
+  console.log(data);
 
-  return <img src={data.items[3].image} alt="Hero image" />;
+  return <img src={data} alt="Hero image" />;
 };

@@ -8,7 +8,7 @@ export const Hero = () => {
   if (loading) return <p>Loading...</p>;
   // if (error) return <p>Error: {error}</p>;
 
-  console.log(data.items[3].image);
+  console.log(data);
 
-  return <img src={data.items[3].image} alt="Hero image" />;
+  return <img src={data.image} alt="Hero image" />;
 };

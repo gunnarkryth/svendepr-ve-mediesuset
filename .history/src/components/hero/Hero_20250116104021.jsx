@@ -10,5 +10,5 @@ export const Hero = () => {
 
   console.log(data.items[3].image);
 
-  return <img src={data.items[3].image} alt="Hero image" />;
+  return <img src={data} alt="Hero image" />;
 };
