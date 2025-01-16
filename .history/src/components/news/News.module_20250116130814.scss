@@ -14,17 +14,11 @@
     width: 80vw;
     figure {
       width: 100%;
-      background-color: #efefef;
-      height: fit-content;
-      figcaption {
-        h4 {
-          text-transform: uppercase;
-        }
-      }
+      figcaption
       img {
         width: 100%;
         object-fit: cover;
-        height: 200px;
+        height:50%;
         object-position: 0 -65px;
       }
     }

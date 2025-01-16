@@ -9,23 +9,13 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 1rem;
     margin: 0;
     width: 80vw;
     figure {
       width: 100%;
-      background-color: #efefef;
-      height: fit-content;
-      figcaption {
-        h4 {
-          text-transform: uppercase;
-        }
-      }
       img {
         width: 100%;
-        object-fit: cover;
-        height: 200px;
-        object-position: 0 -65px;
       }
     }
   }

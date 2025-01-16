@@ -16,11 +16,6 @@ export const News = () => {
       <h2>Nyheder</h2>
       <div className={s.grid}>
         <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
       </div>
     </div>
   );

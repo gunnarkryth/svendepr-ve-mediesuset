@@ -1,7 +1,6 @@
 import s from "./News.module.scss";
 
 import { useFetch } from "../../utils/UseFetch";
-import { Card } from "../card/Card";
 
 export const News = () => {
   const { data, loading, error } = useFetch({
@@ -15,12 +14,7 @@ export const News = () => {
     <div className={s.news}>
       <h2>Nyheder</h2>
       <div className={s.grid}>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        
       </div>
     </div>
   );
