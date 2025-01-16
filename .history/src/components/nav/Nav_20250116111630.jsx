@@ -25,7 +25,7 @@ export const Nav = () => {
           <NavLink to="/login">Login</NavLink>
         </li>
         <li>
-          <img src="public/assets/icons/search_icon.svg" alt="" />
+          <img src="" alt="" />
         </li>
       </ul>
     </nav>

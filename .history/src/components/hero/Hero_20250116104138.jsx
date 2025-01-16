@@ -1,6 +1,4 @@
-import s from "./Hero.module.scss";
-
-import { useFetch } from "../../utils/UseFetch";
+import { useFetch } from "../../context/UseFetch";
 
 export const Hero = () => {
   const { data, loading, error } = useFetch({
@@ -12,5 +10,5 @@ export const Hero = () => {
 
   // console.log(data.items[3].image);
 
-  return <img className={s.hero} src={data.items[4].image} alt="Hero image" />;
+  return <img src={data.items[5].image} alt="Hero image" />;
 };

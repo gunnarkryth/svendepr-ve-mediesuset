@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export const Nav = () => {
   return (
-    <nav className={s.nav}>
+    <nav>
       <ul>
         <li>
           <NavLink to="/">Forside</NavLink>
@@ -23,9 +23,6 @@ export const Nav = () => {
         </li>
         <li>
           <NavLink to="/login">Login</NavLink>
-        </li>
-        <li>
-          <img src="public/assets/icons/search_icon.svg" alt="" />
         </li>
       </ul>
     </nav>
