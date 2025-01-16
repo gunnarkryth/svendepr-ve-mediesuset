@@ -1,0 +1,13 @@
+.news {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 0;
+  figure {
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+}
