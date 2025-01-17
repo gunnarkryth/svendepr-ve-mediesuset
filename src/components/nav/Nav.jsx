@@ -2,7 +2,14 @@ import s from "./Nav.module.scss";
 
 import { NavLink } from "react-router-dom";
 
+import { useContext } from "react";
+import { TokenContext } from "../../context/tokenContext";
+
 export const Nav = () => {
+  const { token, setToken } = useContext(TokenContext);
+
+  console.log("Nav token: ", token);
+
   return (
     <nav className={s.nav}>
       <ul>
@@ -22,7 +29,9 @@ export const Nav = () => {
           <NavLink to="/info">Praktisk info</NavLink>
         </li>
         <li>
-          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/login" onClick={token ? () => setToken(null) : null}>
+            {token ? "Log out" : "Login"}
+          </NavLink>
         </li>
         <li>
           <img src="public/assets/icons/search_icon.svg" alt="" />

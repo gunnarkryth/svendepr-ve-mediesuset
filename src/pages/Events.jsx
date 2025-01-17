@@ -1,11 +1,38 @@
 import s from "./Events.module.scss";
 
 import { useFetch } from "../utils/UseFetch";
+import { useEffect, useState } from "react";
 
 export const Events = () => {
   const { data, loading, error } = useFetch({
     url: "https://api.mediehuset.net/mediesuset/events",
   });
+
+  const [filteredData, setFilteredData] = useState([]);
+  const [selectedStage, setSelectedStage] = useState(null);
+
+  useEffect(() => {
+    if (data?.items) {
+      const sortedData = [...data.items].sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+      setFilteredData(sortedData);
+    }
+  }, [data]);
+
+  const filterByStage = (stage) => {
+    setSelectedStage(stage);
+
+    if (stage) {
+      const filtered = data.items.filter((event) => event.stage_id === stage);
+      setFilteredData(filtered);
+    } else {
+      const sortedData = [...data.items].sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+      setFilteredData(sortedData);
+    }
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -31,17 +58,17 @@ export const Events = () => {
       <nav>
         <ul>
           <li>
-            <button>A-Å</button>
-            <button>Rød scene</button>
-            <button>Blå scene</button>
-            <button>Grøn scene</button>
-            <button>Lilla scene</button>
+            <button onClick={() => filterByStage(null)}>A-Å</button>
+            <button onClick={() => filterByStage("1")}>Rød scene</button>
+            <button onClick={() => filterByStage("2")}>Blå scene</button>
+            <button onClick={() => filterByStage("3")}>Grøn scene</button>
+            <button onClick={() => filterByStage("4")}>Lilla scene</button>
           </li>
         </ul>
       </nav>
 
       <div className={s.grid}>
-        {data.items.map((event) => (
+        {filteredData.map((event) => (
           <figure key={event.id}>
             <img src={event.image} alt="" />
             <figcaption className={getStageClass(event.stage_id)}>

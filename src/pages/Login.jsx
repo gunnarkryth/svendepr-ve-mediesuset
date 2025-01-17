@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { TokenContext } from "../context/tokenContext";
 
 export const Login = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const { token, setToken } = useContext(TokenContext);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,8 +32,8 @@ export const Login = () => {
       }
 
       const data = await response.json();
-      setToken(data.access_token);
-      console.log(data);
+      setToken(data);
+      navigate("/");
     } catch (err) {
       setError(err.message);
     } finally {
