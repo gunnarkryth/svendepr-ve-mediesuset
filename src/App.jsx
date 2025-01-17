@@ -7,6 +7,7 @@ import { Info } from "./pages/Info";
 import { Login } from "./pages/Login";
 import { NotFound } from "./pages/NotFound";
 import { MainLayout } from "./layout/MainLayout";
+import { NewsDetails } from "./pages/NewsDetails";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
+            <Route path="news/:id" element={<NewsDetails />} />
             <Route path="events" element={<Events />} />
             <Route path="camps" element={<Camps />} />
             <Route path="tickets" element={<Tickets />} />
